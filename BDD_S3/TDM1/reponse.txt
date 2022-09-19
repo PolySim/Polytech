@@ -23,3 +23,51 @@ E)
 SELECT nom, dossard
 FROM coureurs
 WHERE equipe = 'LavePlusBlanc';
+
+F)
+SELECT coureurs."nom", coureurs."dossard"
+FROM coureurs
+WHERE equipe = 'LavePlusBlanc';
+
+G)
+SELECT nom, taille, equipe
+FROM coureurs
+WHERE taille >= 180;
+
+H)
+SELECT nom, taille, equipe
+FROM coureurs
+WHERE taille >= 180
+ORDER BY taille;
+
+I)
+
+Q2 -
+A)
+SELECT nom || ' appartient à l équipe ' || equipe
+FROM coureurs
+WHERE taille >= 180
+ORDER BY taille;
+
+B)
+SELECT nom || ' appartient à l équipe ' || equipe as appartenance
+FROM coureurs
+WHERE taille >= 180
+ORDER BY taille;
+
+C)
+SELECT UPPER(nom) as "nom maj", LENGTH(nom) as lg
+FROM coureurs;
+
+D)
+SELECT UPPER(nom) as "nom maj", LENGTH(nom) as lg
+FROM coureurs
+ORDER BY LENGTH(nom);
+
+SELECT UPPER(nom) as "nom maj", LENGTH(nom) as lg
+FROM coureurs
+ORDER BY lg;
+
+E)
+SELECT dossard, UPPER(SUBSTR(nom,1, 1)) || SUBSTR(nom,2) as "nom", UPPER(SUBSTR(equipe, 1, 3)) as "equipe"
+FROM coureurs;
