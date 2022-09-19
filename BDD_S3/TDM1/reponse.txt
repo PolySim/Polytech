@@ -1,0 +1,25 @@
+Q1 -
+
+A)
+SELECT dossard, nom 
+FROM coureurs;
+
+B)
+SELECT dossard, nom 
+FROM coureurs
+ORDER BY dossard;
+
+C)
+SELECT equipe, dossard, nom 
+FROM coureurs
+ORDER BY equipe, nom;
+
+D)
+SELECT dossard, nom, taille 
+FROM coureurs
+ORDER BY taille;
+
+E)
+SELECT nom, dossard
+FROM coureurs
+WHERE equipe = 'LavePlusBlanc';
