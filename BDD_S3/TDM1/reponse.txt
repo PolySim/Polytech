@@ -41,19 +41,17 @@ WHERE taille >= 180
 ORDER BY taille;
 
 I)
+SELECT couleur 
+FROM equipes;
 
 Q2 -
 A)
 SELECT nom || ' appartient à l équipe ' || equipe
-FROM coureurs
-WHERE taille >= 180
-ORDER BY taille;
+FROM coureurs;
 
 B)
 SELECT nom || ' appartient à l équipe ' || equipe as appartenance
-FROM coureurs
-WHERE taille >= 180
-ORDER BY taille;
+FROM coureurs;
 
 C)
 SELECT UPPER(nom) as "nom maj", LENGTH(nom) as lg
@@ -109,5 +107,35 @@ B)
 SELECT taille / 100.0 as "taille"
 FROM coureurs; 
 
+C)
+SELECT CAST(taille AS float) / 100 as "taille"
+FROM coureurs; 
+
+D)
+
+
 Q5 -
 A)
+--On fait une jointure avec le nom des équipes
+
+B)
+SELECT dossard, coureurs.nom, equipe, couleur
+FROM coureurs
+JOIN equipes ON coureurs.equipe = equipes.nom;
+
+C)
+SELECT coureurs.nom, directeur
+FROM coureurs
+JOIN equipes ON coureurs.equipe = equipes.nom;
+
+D)
+SELECT coureurs.nom, dossard
+FROM coureurs
+JOIN equipes ON coureurs.equipe = equipes.nom
+WHERE directeur = 'Ralph';
+
+E)
+SELECT directeur
+FROM equipes
+JOIN coureurs ON coureurs.equipe = equipes.nom
+WHERE coureurs.nom = 'alphonse';
