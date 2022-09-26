@@ -34,20 +34,20 @@ FROM jeux;
 
 SELECT jeu, SUM(points)
 FROM parties
-GROUP BY jeu 
 WHERE joueur = 'Gandalf';
+GROUP BY jeu 
 
 -- 7)
 
-SELECT jeux.id, COUNT(parties.jeu) as 'nomber'
-FROM jeux
-JOIN parties ON jeux.id = parties.jeu
-GROUP BY id 
-WHERE 'number' > 1000000;
+SELECT jeu, COUNT(*) as nombre
+FROM parties
+GROUP BY jeu 
+HAVING nombre > 1000000;
 
 -- 8)
 
-SELECT joueur, nom, points
+SELECT users.nom, jeux.nom, points
 FROM parties
 JOIN jeux ON jeux.id = parties.jeu
+JOIN users ON users.pseudo = parties.joueur
 WHERE points > 10000;
