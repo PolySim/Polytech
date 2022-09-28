@@ -139,3 +139,73 @@ SELECT directeur
 FROM equipes
 JOIN coureurs ON coureurs.equipe = equipes.nom
 WHERE coureurs.nom = 'alphonse';
+
+-- Q6 -
+-- A)
+
+INSERT INTO equipes 
+VALUES ("Giant", "Noir", "Patrick");
+
+-- B)
+
+INSERT INTO coureurs 
+VALUES (8, "warren", "Giant", 180);
+
+INSERT INTO coureurs 
+VALUES (9, "dumoulin", "Giant", 192);
+
+-- Q7 - 
+-- A)
+
+SELECT nom
+FROM equipes
+WHERE directeur IS NULL;
+
+-- B)
+
+SELECT nom
+FROM equipes
+WHERE directeur IS NOT NULL;
+
+-- Q8 -
+-- A)
+
+UPDATE coureurs
+SET taille = taille - 1
+WHERE equipe = "PicsouBank";
+
+-- B)
+
+UPDATE equipes
+SET directeur = 'Jules'
+WHERE directeur IS NULL;
+
+-- Q9 -
+-- 1)
+
+SELECT MAX(taille) AS "taille maxi", AVG(taille) AS "taille moyenne"
+FROM coureurs;
+
+-- 2)
+
+SELECT MAX(taille) AS "taille maxi", AVG(taille) AS "taille moyenne", COUNT(nom) AS "nombre de coureur"
+FROM coureurs;
+
+-- 3)
+
+SELECT COUNT(nom) AS "nombre d'équipes", COUNT(directeur) AS "nombre d'équipe avec directeur"
+FROM equipes;  
+
+-- Q10 -
+-- 1)
+
+SELECT dossard, nom, quand
+FROM coureurs
+LEFT JOIN visites USING (dossard);
+
+-- 2)
+
+SELECT dossard, nom
+FROM coureurs
+LEFT JOIN visites USING (dossard)
+WHERE quand IS NULL;

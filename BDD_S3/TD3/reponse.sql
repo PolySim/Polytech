@@ -51,3 +51,11 @@ FROM parties
 JOIN jeux ON jeux.id = parties.jeu
 JOIN users ON users.pseudo = parties.joueur
 WHERE points > 10000;
+
+
+
+-- Exercice Supplémentaire 
+
+-- Les pseudos des joueurs n'ayant pas joué depuis 2020
+
+SELECT pseudo
