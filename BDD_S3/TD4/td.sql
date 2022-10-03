@@ -6,19 +6,20 @@
 
 SELECT
     jeu,
-    COUNT(DISTINCT, jeu) AS nomber_parties
+    COUNT(jeu) AS nomber_parties
 FROM parties
     JOIN jeux ON parties.jeu = jeux.id
 WHERE prix > 100
+GROUP BY jeu
 HAVING nomber_parties > 1000;
 
 -- 2)
 
 SELECT
     jeu,
-    COUNT(DISTINCT, joueur) AS nomber_joueur
+    COUNT(DISTINCT joueur) AS nomber_joueur
 FROM parties
-    JOIN jeu ON parties.jeu = jeux.IDENTIFIED
+    JOIN jeu ON parties.jeu = jeux.id
 WHERE prix > 100
 GROUP BY jeu
 HAVING nomber_joueur > 50;
@@ -65,14 +66,22 @@ WHERE parties.jeu IS NULL;
 SELECT joueur
 FROM parties
 GROUP BY joueur
-HAVING
-    COUNT(DISTINCT, jeu) >= 2;
+HAVING COUNT(DISTINCT jeu) >= 2;
 
 -- 9)
 
 SELECT
-    jeu,
-    COUNT(*) AS nomber_partie
+    id,
+    COUNT(quand) AS nomber_partie
+FROM jeux
+    LEFT JOIN partie ON id = jeu
+GROUP BY id
+HAVING nomber_partie < 10;
+
+-- Q2
+
+SELECT joueur
 FROM parties
-GROUP BY jeu
-HAVING nomber_partie > 10;
+GROUP BY joueur
+ORDER BY COUNT(points) DESC
+LIMIT 3;
