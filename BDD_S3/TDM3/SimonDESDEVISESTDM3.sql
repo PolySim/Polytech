@@ -123,3 +123,11 @@ FROM mesures_mensuelles
 JOIN polluants USING(code_polluant)
 JOIN stations USING(code_station)
 GROUP BY code_station, code_polluant;
+
+
+-- Q5 -
+-- 1)
+
+SELECT code_station, code_polluant
+FROM stations
+CROSS JOIN polluants;
