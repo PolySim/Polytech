@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 02 05</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 20px;
+            margin: 0 auto;
+            width: 400px;
+            height: fit-content;
+            border-radius: 20px;
+        }
+
+        #input-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        input {
+            border: 1px solid #cccccc;
+            border-radius: 15px;
+            padding: 6px 12px;
+            width: 45%;
+        }
+
+        input[type="number"] {
+            margin-top: 12px;
+
+            &:focus {
+                outline-color: rgb(124, 196, 197);
+            }
+        }
+
+        input[type="submit"] {
+            background-color: rgb(124, 196, 197);
+            color: #ffffff;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<form action="http2serial.php" method="post">
+    Fréquence :
+    <div id="input-container">
+        <input type="number" name="duree" autocomplete="off">
+        <input type="submit">
+    </div>
+</form>
+</body>
+</html>
